@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Run the MySQL command with sudo and execute SQL commands through stdin
+read -p "Enter the country to retrieve login attempts (e.g., 'Canada'): " country
+sudo mysql << EOF
+
+
+use cybersecurity;
+SELECT * FROM log_in_attempts WHERE country = '$country';
+
+EOF
